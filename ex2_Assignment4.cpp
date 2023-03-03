@@ -5,7 +5,7 @@ User will input 2 strings step by step, then program will output the string that
 #include <iostream>
 #include <string>
 using namespace std;
-string compareString(string str1, string str2)
+string compareString(string &str1, string &str2)
 {
     int len1=str1.length();
     int len2=str2.length();

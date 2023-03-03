@@ -1,13 +1,17 @@
+/*Bài 3. Viết chương trình giả lập máy tính cơ bản với các phép tính cộng, trừ, nhân, chia, chia lấy dư, (phép chia chính xác đến số thập phân thứ 7):
+-  Nhập 2 số A và B, in ra các phép tính cộng, trừ, nhân, chia, chia lấy dư của A cho B.
+-  Viết các phép tính trên mỗi hàm riêng, truyền con trỏ cho các hàm.
+*/
 #include <iostream>
 #include <iomanip> // include std::setprecision
-#include <cmath>// to use fmod function
+#include <cmath>   // to use fmod function
 using namespace std;
 // Calculating Funcyion prototypes
 double summation(double *a, double *b);
 double subtraction(double *a, double *b);
 double multiplication(double *a, double *b);
 double division(double *a, double *b);
-double moduluss(double *a, double *b);
+int moduluss(double *a, double *b);
 
 int main()
 {
@@ -48,7 +52,7 @@ double division(double *a, double *b)
         return *a / *b;
     }
 }
-double moduluss(double *a, double *b)
+int moduluss(double *a, double *b)
 {
     if (*b == 0)
     {
@@ -56,7 +60,13 @@ double moduluss(double *a, double *b)
     }
     else
     {
-        return fmod(*a, *b);
-        // return a - static_cast<int>(a/b)*b;
+        if (*a > *b)
+        {
+            return int(*a) % int(*b);
+        }
+        else
+        {
+            return int(*b) % int(*a);
+        }
     }
 }
